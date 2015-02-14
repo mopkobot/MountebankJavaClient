@@ -1,7 +1,6 @@
-package imposter;
+package imposterFactory;
 
 import domain.Imposter;
-import imposterFactory.ImposterFactory;
 import org.junit.Before;
 import org.junit.Test;
 
