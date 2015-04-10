@@ -4,6 +4,7 @@ import domain.Response;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static com.google.common.collect.Maps.newHashMap;
@@ -23,14 +24,28 @@ public class ResponseBuilderTest {
     public void shouldCreateAResponseWithStatusCode200() {
         Response response = responseBuilder.withStatusCode("200").build();
 
-        assertThat(response.getStatusCode(), is("200"));
+        assertThat(response.getStatusCode().get(), is("200"));
+    }
+
+    @Test
+    public void shouldCreateAResponseWithEmptyStatusCodeIfPassedInStatusCodeIsEmptyString() {
+        Response response = responseBuilder.withStatusCode("").build();
+
+        assertThat(response.getStatusCode().isPresent(), is(false));
     }
 
     @Test
     public void shouldCreateAResponseWithStatusBody() {
         Response response = responseBuilder.withBody("Example Body").build();
 
-        assertThat(response.getBody(), is("Example Body"));
+        assertThat(response.getBody().get(), is("Example Body"));
+    }
+
+    @Test
+    public void shouldCreateAResponseWithEmptyBodyIfPassedInBodyIsEmptyString() {
+        Response response = responseBuilder.withBody("").build();
+
+        assertThat(response.getBody().isPresent(), is(false));
     }
 
     @Test
@@ -40,7 +55,14 @@ public class ResponseBuilderTest {
 
         Response response = responseBuilder.withHeaders(mapOfHeaders).build();
 
-        assertThat(response.getHeaders(), is(mapOfHeaders));
+        assertThat(response.getHeaders().get(), is(mapOfHeaders));
     }
 
+    @Test
+    public void shouldCreateAResponseWithEmptyHeadersIfPassedInHeadersIsEmptyMap() {
+        HashMap<String, String> emptyHeaders = newHashMap();
+        Response response = responseBuilder.withHeaders(emptyHeaders).build();
+
+        assertThat(response.getBody().isPresent(), is(false));
+    }
 }

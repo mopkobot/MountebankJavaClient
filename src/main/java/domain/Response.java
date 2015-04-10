@@ -1,6 +1,11 @@
 package domain;
 
+import com.google.common.base.Optional;
+
 import java.util.Map;
+
+import static com.google.common.base.Optional.absent;
+import static com.google.common.base.Optional.fromNullable;
 
 public class Response {
     private String statusCode;
@@ -13,15 +18,27 @@ public class Response {
         this.headers = headers;
     }
 
-    public String getStatusCode() {
-        return statusCode;
+    public Optional<String> getStatusCode() {
+        Optional<String> optionalStatusCode = fromNullable(statusCode);
+        if (optionalStatusCode.isPresent() && optionalStatusCode.get().isEmpty()) {
+            return absent();
+        }
+        return optionalStatusCode;
     }
 
-    public String getBody() {
-        return body;
+    public Optional<String> getBody() {
+        Optional<String> optionalBody = fromNullable(body);
+        if (optionalBody.isPresent() && optionalBody.get().isEmpty()) {
+            return absent();
+        }
+        return optionalBody;
     }
 
-    public Map<String, String> getHeaders() {
-        return headers;
+    public Optional<Map<String, String>> getHeaders() {
+        Optional<Map<String, String>> optionalHeaders = fromNullable(headers);
+        if (optionalHeaders.isPresent() && optionalHeaders.get().isEmpty()) {
+            return absent();
+        }
+        return optionalHeaders;
     }
 }
