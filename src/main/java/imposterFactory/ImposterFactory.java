@@ -6,23 +6,23 @@ import domain.Imposter;
 import static domain.HttpProtocol.*;
 
 public class ImposterFactory {
-    public Imposter createHttpImposter(String port) {
+    public Imposter createHttpImposter(Integer port) {
         return createImposter(HTTP, port);
     }
 
-    public Imposter createHttpsImposter(String port) {
+    public Imposter createHttpsImposter(Integer port) {
         return createImposter(HTTPS, port);
     }
 
-    public Imposter createSmtpImposter(String port) {
+    public Imposter createSmtpImposter(Integer port) {
         return createImposter(SMTP, port);
     }
 
-    public Imposter createTCPImposter(String port) {
+    public Imposter createTCPImposter(Integer port) {
         return createImposter(TCP, port);
     }
 
-    private Imposter createImposter(HttpProtocol protocol, String port) {
+    private Imposter createImposter(HttpProtocol protocol, Integer port) {
         return new Imposter(protocol, port);
     }
 }

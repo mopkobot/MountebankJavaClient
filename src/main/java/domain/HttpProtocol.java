@@ -1,7 +1,7 @@
 package domain;
 
 public enum HttpProtocol {
-   HTTPS("http"), SMTP("smtp"), TCP("tcp"), HTTP("http");
+   HTTPS("https"), SMTP("smtp"), TCP("tcp"), HTTP("http");
    private String formattedName;
 
    private HttpProtocol(String formattedName) {

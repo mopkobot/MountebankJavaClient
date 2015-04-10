@@ -3,16 +3,15 @@ package domain;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static java.lang.Integer.valueOf;
 
 public class Imposter {
     private Integer port;
     private String protocol;
     private List<Stub> stubs = newArrayList();
 
-    public Imposter(HttpProtocol protocol, String port) {
+    public Imposter(HttpProtocol protocol, Integer port) {
         this.protocol = protocol.getFormattedName();
-        this.port = valueOf(port);
+        this.port = port;
     }
 
     public String getProtocol() {

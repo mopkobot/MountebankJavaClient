@@ -20,7 +20,7 @@ public class SerializeTest {
 
     @Test
     public void shouldReturnJsonOfAnImposter() {
-        Imposter imposter = new ImposterFactory().createHttpImposter("4545");
+        Imposter imposter = new ImposterFactory().createHttpImposter(4545);
         Map<String, String> newHashMap = new HashMap<String, String>();
         newHashMap.put("Location", "https://location.com");
         imposter.addResponses(newArrayList(new ResponseBuilder().withStatusCode("400").withBody("Body").withHeaders(newHashMap).build()));
