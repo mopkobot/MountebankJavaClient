@@ -26,7 +26,7 @@ public class Imposter {
         return stubs;
     }
 
-    public void addResponse(List<Response> response) {
+    public void addResponses(List<Response> response) {
         stubs.add(new Stub(response));
     }
 }

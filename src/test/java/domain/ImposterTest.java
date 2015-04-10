@@ -16,7 +16,7 @@ public class ImposterTest {
         Imposter imposter = new Imposter(HttpProtocol.HTTP, "");
         List<Response> response = newArrayList(mock(Response.class));
 
-        imposter.addResponse(response);
+        imposter.addResponses(response);
 
         assertThat(imposter.getStubs(), contains(new Stub(response)));
     }
