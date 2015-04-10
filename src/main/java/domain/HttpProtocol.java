@@ -1,5 +1,14 @@
 package domain;
 
 public enum HttpProtocol {
-   HTTPS, SMTP, TCP, HTTP
+   HTTPS("http"), SMTP("smtp"), TCP("tcp"), HTTP("http");
+   private String formattedName;
+
+   private HttpProtocol(String formattedName) {
+      this.formattedName = formattedName;
+   }
+
+   public String getFormattedName() {
+      return formattedName;
+   }
 }
