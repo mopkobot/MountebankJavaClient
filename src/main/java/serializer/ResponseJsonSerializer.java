@@ -1,10 +1,11 @@
-package domain;
+package serializer;
 
 import com.google.common.base.Optional;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import domain.Response;
 
 import java.lang.reflect.Type;
 import java.util.Map;
