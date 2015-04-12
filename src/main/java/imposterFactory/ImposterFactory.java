@@ -1,9 +1,9 @@
 package imposterFactory;
 
-import domain.HttpProtocol;
 import domain.Imposter;
+import domain.TypeOfRequest;
 
-import static domain.HttpProtocol.*;
+import static domain.TypeOfRequest.*;
 
 public class ImposterFactory {
     public Imposter createHttpImposter(Integer port) {
@@ -22,7 +22,7 @@ public class ImposterFactory {
         return createImposter(TCP, port);
     }
 
-    private Imposter createImposter(HttpProtocol protocol, Integer port) {
+    private Imposter createImposter(TypeOfRequest protocol, Integer port) {
         return new Imposter(protocol, port);
     }
 }

@@ -13,7 +13,7 @@ public class ImposterTest {
 
     @Test
     public void shouldCreateAStubThatContainsTheAddedResponse() {
-        Imposter imposter = new Imposter(HttpProtocol.HTTP, null);
+        Imposter imposter = new Imposter(TypeOfRequest.HTTP, null);
         List<Response> response = newArrayList(mock(Response.class));
 
         imposter.addResponses(response);

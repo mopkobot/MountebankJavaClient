@@ -9,7 +9,7 @@ public class Imposter {
     private String protocol;
     private List<Stub> stubs = newArrayList();
 
-    public Imposter(HttpProtocol protocol, Integer port) {
+    public Imposter(TypeOfRequest protocol, Integer port) {
         this.protocol = protocol.getFormattedName();
         this.port = port;
     }
