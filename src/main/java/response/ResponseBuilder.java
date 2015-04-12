@@ -1,6 +1,6 @@
 package response;
 
-import domain.Response;
+import domain.HttpResponse;
 
 import java.util.Map;
 
@@ -24,7 +24,7 @@ public class ResponseBuilder {
         return this;
     }
 
-    public Response build() {
-        return new Response(statusCode, body, mapOfHeaders);
+    public HttpResponse build() {
+        return new HttpResponse(statusCode, body, mapOfHeaders);
     }
 }

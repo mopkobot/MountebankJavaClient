@@ -3,10 +3,10 @@ package domain;
 import java.util.List;
 
 public class Stub{
-    private List<Response> responses;
+    private List<HttpResponse> responses;
 
-    public Stub(List<Response> response) {
-        this.responses = response;
+    public Stub(List<HttpResponse> httpResponse) {
+        this.responses = httpResponse;
     }
 
     @Override

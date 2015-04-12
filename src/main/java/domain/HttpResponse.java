@@ -7,12 +7,12 @@ import java.util.Map;
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.fromNullable;
 
-public class Response {
+public class HttpResponse {
     private String statusCode;
     private String body;
     private Map<String, String> headers;
 
-    public Response(String statusCode, String body, Map<String, String> headers) {
+    public HttpResponse(String statusCode, String body, Map<String, String> headers) {
         this.statusCode = statusCode;
         this.body = body;
         this.headers = headers;

@@ -1,6 +1,6 @@
 package response;
 
-import domain.Response;
+import domain.HttpResponse;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ import static com.google.common.collect.Maps.newHashMap;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class ResponseBuilderTest {
+public class HttpResponseBuilderTest {
 
     private ResponseBuilder responseBuilder;
 
@@ -22,30 +22,30 @@ public class ResponseBuilderTest {
 
     @Test
     public void shouldCreateAResponseWithStatusCode200() {
-        Response response = responseBuilder.withStatusCode("200").build();
+        HttpResponse httpResponse = responseBuilder.withStatusCode("200").build();
 
-        assertThat(response.getStatusCode().get(), is("200"));
+        assertThat(httpResponse.getStatusCode().get(), is("200"));
     }
 
     @Test
     public void shouldCreateAResponseWithEmptyStatusCodeIfPassedInStatusCodeIsEmptyString() {
-        Response response = responseBuilder.withStatusCode("").build();
+        HttpResponse httpResponse = responseBuilder.withStatusCode("").build();
 
-        assertThat(response.getStatusCode().isPresent(), is(false));
+        assertThat(httpResponse.getStatusCode().isPresent(), is(false));
     }
 
     @Test
     public void shouldCreateAResponseWithStatusBody() {
-        Response response = responseBuilder.withBody("Example Body").build();
+        HttpResponse httpResponse = responseBuilder.withBody("Example Body").build();
 
-        assertThat(response.getBody().get(), is("Example Body"));
+        assertThat(httpResponse.getBody().get(), is("Example Body"));
     }
 
     @Test
     public void shouldCreateAResponseWithEmptyBodyIfPassedInBodyIsEmptyString() {
-        Response response = responseBuilder.withBody("").build();
+        HttpResponse httpResponse = responseBuilder.withBody("").build();
 
-        assertThat(response.getBody().isPresent(), is(false));
+        assertThat(httpResponse.getBody().isPresent(), is(false));
     }
 
     @Test
@@ -53,16 +53,16 @@ public class ResponseBuilderTest {
         Map<String, String> mapOfHeaders = newHashMap();
         mapOfHeaders.put("Location", "http://localhost:4545/customers/123");
 
-        Response response = responseBuilder.withHeaders(mapOfHeaders).build();
+        HttpResponse httpResponse = responseBuilder.withHeaders(mapOfHeaders).build();
 
-        assertThat(response.getHeaders().get(), is(mapOfHeaders));
+        assertThat(httpResponse.getHeaders().get(), is(mapOfHeaders));
     }
 
     @Test
     public void shouldCreateAResponseWithEmptyHeadersIfPassedInHeadersIsEmptyMap() {
         HashMap<String, String> emptyHeaders = newHashMap();
-        Response response = responseBuilder.withHeaders(emptyHeaders).build();
+        HttpResponse httpResponse = responseBuilder.withHeaders(emptyHeaders).build();
 
-        assertThat(response.getBody().isPresent(), is(false));
+        assertThat(httpResponse.getBody().isPresent(), is(false));
     }
 }

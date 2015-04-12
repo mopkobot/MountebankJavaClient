@@ -2,8 +2,8 @@ package integration;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import domain.HttpResponse;
 import domain.Imposter;
-import domain.Response;
 import imposterFactory.ImposterFactory;
 import org.junit.Test;
 import response.ResponseBuilder;
@@ -25,7 +25,7 @@ public class SerializeTest {
         newHashMap.put("Location", "https://location.com");
         imposter.addResponses(newArrayList(new ResponseBuilder().withStatusCode("400").withBody("Body").withHeaders(newHashMap).build()));
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Response.class, new ResponseJsonSerializer());
+        gsonBuilder.registerTypeAdapter(HttpResponse.class, new ResponseJsonSerializer());
         Gson gson = gsonBuilder.create();
 
         String result = gson.toJson(imposter);

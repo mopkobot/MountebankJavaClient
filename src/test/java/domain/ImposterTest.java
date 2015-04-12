@@ -14,11 +14,11 @@ public class ImposterTest {
     @Test
     public void shouldCreateAStubThatContainsTheAddedResponse() {
         Imposter imposter = new Imposter(TypeOfRequest.HTTP, null);
-        List<Response> response = newArrayList(mock(Response.class));
+        List<HttpResponse> httpResponse = newArrayList(mock(HttpResponse.class));
 
-        imposter.addResponses(response);
+        imposter.addResponses(httpResponse);
 
-        assertThat(imposter.getStubs(), contains(new Stub(response)));
+        assertThat(imposter.getStubs(), contains(new Stub(httpResponse)));
     }
 
 

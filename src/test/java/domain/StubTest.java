@@ -14,19 +14,19 @@ public class StubTest {
 
     @Test
     public void twoStubsShouldBeEqualBasedOnResponseTheyContain() {
-        List<Response> responses = newArrayList(mock(Response.class));
-        Stub stubOne = new Stub(responses);
-        Stub stubTwo = new Stub(responses);
+        List<HttpResponse> httpResponses = newArrayList(mock(HttpResponse.class));
+        Stub stubOne = new Stub(httpResponses);
+        Stub stubTwo = new Stub(httpResponses);
 
         assertThat(stubOne, is(stubTwo));
     }
 
     @Test
     public void twoStubsShouldBeNotEqualIfTheResponsesAreDifferent() {
-        List<Response> responseOne = newArrayList(mock(Response.class));
-        List<Response> responseTwo = newArrayList(mock(Response.class));
-        Stub stubOne = new Stub(responseOne);
-        Stub stubTwo = new Stub(responseTwo);
+        List<HttpResponse> httpResponseOne = newArrayList(mock(HttpResponse.class));
+        List<HttpResponse> httpResponseTwo = newArrayList(mock(HttpResponse.class));
+        Stub stubOne = new Stub(httpResponseOne);
+        Stub stubTwo = new Stub(httpResponseTwo);
 
         assertThat(stubOne, is(not((stubTwo))));
     }
