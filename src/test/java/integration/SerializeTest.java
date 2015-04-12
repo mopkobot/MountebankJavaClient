@@ -2,11 +2,11 @@ package integration;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import domain.HttpResponse;
 import domain.Imposter;
 import imposterFactory.ImposterFactory;
 import org.junit.Test;
 import response.ResponseBuilder;
+import responses.HttpResponse;
 import serializer.ResponseJsonSerializer;
 
 import java.util.HashMap;

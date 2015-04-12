@@ -1,6 +1,7 @@
 package domain;
 
 import org.junit.Test;
+import responses.HttpResponse;
 
 import java.util.List;
 

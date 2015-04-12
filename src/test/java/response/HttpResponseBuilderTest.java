@@ -1,8 +1,8 @@
 package response;
 
-import domain.HttpResponse;
 import org.junit.Before;
 import org.junit.Test;
+import responses.HttpResponse;
 
 import java.util.HashMap;
 import java.util.Map;

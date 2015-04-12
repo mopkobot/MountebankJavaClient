@@ -1,5 +1,7 @@
 package domain;
 
+import responses.HttpResponse;
+
 import java.util.List;
 
 public class Stub{

@@ -2,8 +2,8 @@ package serializer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import domain.HttpResponse;
 import org.junit.Test;
+import responses.HttpResponse;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package domain;
+package responses;
 
 import com.google.common.base.Optional;
 

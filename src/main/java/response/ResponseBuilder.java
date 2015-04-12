@@ -1,6 +1,6 @@
 package response;
 
-import domain.HttpResponse;
+import responses.HttpResponse;
 
 import java.util.Map;
 
