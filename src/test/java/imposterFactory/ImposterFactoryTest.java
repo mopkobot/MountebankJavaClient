@@ -19,50 +19,54 @@ public class ImposterFactoryTest {
     }
 
     @Test
-    public void shouldCreateHttpImposter() {
-        Imposter imposter = imposterFactory.createHttpImposter(null);
+    public void shouldCreateHttpImposterWithName() {
+        Imposter imposter = imposterFactory.createHttpImposter(null, "name");
 
         assertThat(imposter.getProtocol(), is("http"));
+        assertThat(imposter.getName(), is("name"));
     }
 
     @Test
-    public void shouldCreateHttpsImposter() {
-        Imposter imposter = imposterFactory.createHttpsImposter(null);
+    public void shouldCreateHttpsImposterWithName() {
+        Imposter imposter = imposterFactory.createHttpsImposter(null, "name");
 
         assertThat(imposter.getProtocol(), is("https"));
+        assertThat(imposter.getName(), is("name"));
     }
 
     @Test
     public void shouldCreateSmtpImposter() {
-        Imposter imposter = imposterFactory.createSmtpImposter(null);
+        Imposter imposter = imposterFactory.createSmtpImposter(null, "name");
 
         assertThat(imposter.getProtocol(), is("smtp"));
+        assertThat(imposter.getName(), is("name"));
     }
 
     @Test
     public void shouldCreateTcpImposter() {
-        Imposter imposter = imposterFactory.createTCPImposter(null, null);
+        Imposter imposter = imposterFactory.createTCPImposter(null, null, "name");
 
         assertThat(imposter.getProtocol(), is("tcp"));
+        assertThat(imposter.getName(), is("name"));
     }
 
     @Test
     public void shouldCreateTcpImposterWithTextMode() {
-        Imposter imposter = imposterFactory.createTCPImposter(null, TEXT);
+        Imposter imposter = imposterFactory.createTCPImposter(null, TEXT, null);
 
         assertThat(imposter.getMode(), is("text"));
     }
 
     @Test
     public void shouldCreateTcpImposterWithBinaryMode() {
-        Imposter imposter = imposterFactory.createTCPImposter(null, BINARY);
+        Imposter imposter = imposterFactory.createTCPImposter(null, BINARY, null);
 
         assertThat(imposter.getMode(), is("binary"));
     }
 
     @Test
     public void shouldCreateTcpImposterWithTextModeIfNullIsPassedIn() {
-        Imposter imposter = imposterFactory.createTCPImposter(null, null);
+        Imposter imposter = imposterFactory.createTCPImposter(null, null, null);
 
         assertThat(imposter.getMode(), is("text"));
     }
@@ -71,7 +75,7 @@ public class ImposterFactoryTest {
     public void shouldCreateImposterOnASpecificPort() {
         Integer port = 1234;
 
-        Imposter imposter = imposterFactory.createTCPImposter(port, null);
+        Imposter imposter = imposterFactory.createTCPImposter(port, null, null);
 
         assertThat(imposter.getPort(), is(port));
     }

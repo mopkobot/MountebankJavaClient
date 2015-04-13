@@ -9,26 +9,26 @@ import static domain.TypeOfRequest.*;
 import static tcp.TcpMode.TEXT;
 
 public class ImposterFactory {
-    public Imposter createHttpImposter(Integer port) {
-        return createImposter(HTTP, port, null);
+    public Imposter createHttpImposter(Integer port, String name) {
+        return createImposter(HTTP, port, null, name);
     }
 
-    public Imposter createHttpsImposter(Integer port) {
-        return createImposter(HTTPS, port, null);
+    public Imposter createHttpsImposter(Integer port, String name) {
+        return createImposter(HTTPS, port, null, name);
     }
 
-    public Imposter createSmtpImposter(Integer port) {
-        return createImposter(SMTP, port, null);
+    public Imposter createSmtpImposter(Integer port, String name) {
+        return createImposter(SMTP, port, null, name);
     }
 
-    public Imposter createTCPImposter(Integer port, TcpMode mode) {
+    public Imposter createTCPImposter(Integer port, TcpMode mode, String name) {
         if(!newArrayList(TcpMode.values()).contains(mode)) {
-            return createImposter(TCP, port, TEXT.getFormattedName());
+            return createImposter(TCP, port, TEXT.getFormattedName(), name);
         }
-        return createImposter(TCP, port, mode.getFormattedName());
+        return createImposter(TCP, port, mode.getFormattedName(), name);
     }
 
-    private Imposter createImposter(TypeOfRequest protocol, Integer port, String mode) {
-        return new Imposter(protocol, port, mode);
+    private Imposter createImposter(TypeOfRequest protocol, Integer port, String mode, String name) {
+        return new Imposter(protocol, port, mode, name);
     }
 }
