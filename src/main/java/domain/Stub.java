@@ -1,13 +1,11 @@
 package domain;
 
-import responses.HttpResponse;
-
 import java.util.List;
 
-public class Stub{
-    private List<HttpResponse> responses;
+public class Stub<T>{
+    private List<T> responses;
 
-    public Stub(List<HttpResponse> httpResponse) {
+    public Stub(List<T> httpResponse) {
         this.responses = httpResponse;
     }
 

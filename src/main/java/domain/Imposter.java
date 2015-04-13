@@ -1,17 +1,15 @@
 package domain;
 
-import responses.HttpResponse;
-
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-public class Imposter {
+public class Imposter<T> {
     private Integer port;
     private String protocol;
     private String mode;
     private String name;
-    private List<Stub> stubs = newArrayList();
+    private List<Stub<T>> stubs = newArrayList();
 
     public Imposter(TypeOfRequest protocol, Integer port, String mode, String name) {
         this.name = name;
@@ -28,12 +26,12 @@ public class Imposter {
         return port;
     }
 
-    public List<Stub> getStubs() {
+    public List<Stub<T>> getStubs() {
         return stubs;
     }
 
-    public void addResponses(List<HttpResponse> httpResponse) {
-        stubs.add(new Stub(httpResponse));
+    public void addResponses(List<T> httpResponse) {
+        stubs.add(new Stub<T>(httpResponse));
     }
 
     public String getMode() {
