@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import domain.Imposter;
 import imposterFactory.ImposterFactory;
 import org.junit.Test;
-import response.ResponseBuilder;
+import response.HttpResponseBuilder;
 import responses.HttpResponse;
 import serializer.ResponseJsonSerializer;
 
@@ -23,7 +23,7 @@ public class SerializeTest {
         Imposter imposter = new ImposterFactory().createHttpImposter(4545, null);
         Map<String, String> newHashMap = new HashMap<String, String>();
         newHashMap.put("Location", "https://location.com");
-        imposter.addResponses(newArrayList(new ResponseBuilder().withStatusCode("400").withBody("Body").withHeaders(newHashMap).build()));
+        imposter.addResponses(newArrayList(new HttpResponseBuilder().withStatusCode("400").withBody("Body").withHeaders(newHashMap).build()));
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(HttpResponse.class, new ResponseJsonSerializer());
         Gson gson = gsonBuilder.create();

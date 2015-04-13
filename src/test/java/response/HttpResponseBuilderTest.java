@@ -13,11 +13,11 @@ import static org.junit.Assert.assertThat;
 
 public class HttpResponseBuilderTest {
 
-    private ResponseBuilder responseBuilder;
+    private HttpResponseBuilder responseBuilder;
 
     @Before
     public void setUp() throws Exception {
-        responseBuilder = new ResponseBuilder();
+        responseBuilder = new HttpResponseBuilder();
     }
 
     @Test
