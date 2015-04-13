@@ -9,11 +9,13 @@ import static com.google.common.collect.Lists.newArrayList;
 public class Imposter {
     private Integer port;
     private String protocol;
+    private String mode;
     private List<Stub> stubs = newArrayList();
 
-    public Imposter(TypeOfRequest protocol, Integer port) {
+    public Imposter(TypeOfRequest protocol, Integer port, String mode) {
         this.protocol = protocol.getFormattedName();
         this.port = port;
+        this.mode = mode;
     }
 
     public String getProtocol() {
@@ -30,5 +32,9 @@ public class Imposter {
 
     public void addResponses(List<HttpResponse> httpResponse) {
         stubs.add(new Stub(httpResponse));
+    }
+
+    public String getMode() {
+        return mode;
     }
 }

@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static tcp.TcpMode.BINARY;
+import static tcp.TcpMode.TEXT;
 
 public class ImposterFactoryTest {
 
@@ -39,16 +41,37 @@ public class ImposterFactoryTest {
 
     @Test
     public void shouldCreateTcpImposter() {
-        Imposter imposter = imposterFactory.createTCPImposter(null);
+        Imposter imposter = imposterFactory.createTCPImposter(null, null);
 
         assertThat(imposter.getProtocol(), is("tcp"));
+    }
+
+    @Test
+    public void shouldCreateTcpImposterWithTextMode() {
+        Imposter imposter = imposterFactory.createTCPImposter(null, TEXT);
+
+        assertThat(imposter.getMode(), is("text"));
+    }
+
+    @Test
+    public void shouldCreateTcpImposterWithBinaryMode() {
+        Imposter imposter = imposterFactory.createTCPImposter(null, BINARY);
+
+        assertThat(imposter.getMode(), is("binary"));
+    }
+
+    @Test
+    public void shouldCreateTcpImposterWithTextModeIfNullIsPassedIn() {
+        Imposter imposter = imposterFactory.createTCPImposter(null, null);
+
+        assertThat(imposter.getMode(), is("text"));
     }
 
     @Test
     public void shouldCreateImposterOnASpecificPort() {
         Integer port = 1234;
 
-        Imposter imposter = imposterFactory.createTCPImposter(port);
+        Imposter imposter = imposterFactory.createTCPImposter(port, null);
 
         assertThat(imposter.getPort(), is(port));
     }
